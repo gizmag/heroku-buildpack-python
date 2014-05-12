@@ -12,9 +12,9 @@ source $BIN_DIR/utils
 # Use vendored libffi.
 echo "-----> Bootstrapping libffi."
 
-PREV_DIR=$(pwd)
 mkdir -p "$VENDORED_PATH"
-cd "$VENDORED_PATH"
+pushd "$VENDORED_PATH"
+
 # Download and extract libffi into target vendor directory.
 curl -s -L -o tmp-libffi.tar.gz $VENDORED_LIBFFI
 tar -zxvf tmp-libffi.tar.gz > /dev/null
@@ -29,4 +29,4 @@ then
   echo "libffi.pc is in-place at $(pwd)/vendor/lib/pkgconfig/libffi.pc, libffi-based builds should work!"
 fi
 
-cd "$PREV_DIR"
+popd
