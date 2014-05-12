@@ -23,10 +23,5 @@ rm tmp-libffi.tar.gz
 # Add libffi's to PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/lib/
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$(pwd)/lib/pkgconfig/
-echo "PKG_CONFIG_PATH=${PKG_CONFIG_PATH}"
-if [ -e $(pwd)/lib/pkgconfig/libffi.pc ]
-then
-  echo "libffi.pc is in-place at $(pwd)/vendor/lib/pkgconfig/libffi.pc, libffi-based builds should work!"
-fi
 
 popd
